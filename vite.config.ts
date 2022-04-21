@@ -12,6 +12,14 @@ module.exports = {
         supportTs: false
     })
   ],
+  // 引用全局 scss
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: '@import "./src/assets/css/app.scss";'
+      }
+    }
+  },
   resolve: {
     alias: {
       // 如果报错__dirname找不到，需要安装node,执行yarn add @types/node --save-dev
