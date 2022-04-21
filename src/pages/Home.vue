@@ -1,8 +1,6 @@
 <template>
   <h1>Home</h1>
-  <p>
-    <img src="../assets/logo.png" alt="logo" />
-  </p>
+  <div class="line">test</div>
 </template>
 
 <script>
@@ -22,9 +20,8 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-h1,
-a {
+<style scoped lang="scss">
+h1{
   color: green;
 }
 </style>

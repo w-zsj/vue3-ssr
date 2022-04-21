@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { log } from 'console'
 const isdev = import.meta.env.MODE === 'production'
 let loadingInstance: any
 // 请求实例
