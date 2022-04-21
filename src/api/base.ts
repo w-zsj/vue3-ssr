@@ -4,6 +4,5 @@ export const getMenus = (params?: any) => {
 }
 
 export const testMock = (params?: any) => {
-    debugger
     return GET('/mock/list', params)
 }

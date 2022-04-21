@@ -5,8 +5,16 @@
   </p>
 </template>
 
-<script setup>
-import { reactive, defineAsyncComponent } from 'vue'
+<script>
+import { testMock } from "@/api/base";
+import { reactive, defineComponent } from "vue";
+export default defineComponent({
+  setup(props) {
+    testMock({}).then((res) => {
+      console.log("res", res);
+    });
+  },
+});
 </script>
 
 <style scoped>
