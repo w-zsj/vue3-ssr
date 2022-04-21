@@ -85,6 +85,7 @@ async function createServer(
 
 if (!isTest) {
   createServer().then(({ app }) =>
+    // 端口号不要随便修改
     app.listen(8364, () => {
       console.log('http://localhost:8364')
     })
