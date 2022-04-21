@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { log } from 'console'
 const isdev = import.meta.env.MODE === 'production'
 let loadingInstance: any
 // 请求实例
@@ -39,10 +40,10 @@ const responseReject = (e: any) => {
 
 // 响应结果拦截器
 http.interceptors.response.use(res => {
-    if (res.status === 200) {
+    // console.log('res:::',res)
+    if (res.status === 200 && res.data && res.data.code==1) {
         // loadingInstance && loadingInstance.close(
-        let data = res.data
-        return data
+        return res.data.data
     }
     return responseReject(res)
 }, err => responseReject(err))

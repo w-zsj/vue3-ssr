@@ -4,7 +4,7 @@ export default [
       method: "get",
       response: () => {
         return {
-          code: 200,
+          code: 1,
           message: "ok",
           data: ["tom", "jerry"]
         };

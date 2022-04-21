@@ -7,12 +7,17 @@
 
 <script>
 import { testMock } from "@/api/base";
-import { reactive, defineComponent } from "vue";
+import { useStore } from "vuex";
+import { reactive, defineComponent, computed } from "vue";
 export default defineComponent({
   setup(props) {
     testMock({}).then((res) => {
       console.log("res", res);
     });
+
+    const store = useStore();
+    let user = computed(() => store.state.user);
+    console.log("store--", user.value);
   },
 });
 </script>
