@@ -4,6 +4,7 @@ import { createRouter } from "./router";
 import store from "./store/index";
 import i18n from "./i18n";
 // console.log(`process.env>>>`, import.meta.env)
+// let window: Window;
 
 export function createApp() {
   const app = createSSRApp(App);

@@ -1,9 +1,10 @@
 import { useI18n } from "vue-i18n";
+import i18n from "@/i18n/index";
 export default () => {
   const { locale } = useI18n();
-  const change = (type: string) => {
+  const changeLang = (type: string) => {
     locale.value = type;
     sessionStorage.setItem("local", type);
   };
-  return change;
+  return { changeLang, i18n };
 };
