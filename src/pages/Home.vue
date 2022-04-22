@@ -2,7 +2,7 @@
  * @Author: zhangsanjun 
  * @Date: 2022-04-23 06:41:53 
  * @Last Modified by: zhangsanjun
- * @Last Modified time: 2022-04-23 06:44:38
+ * @Last Modified time: 2022-04-23 07:10:03
  */
 
 <template>
@@ -14,24 +14,25 @@
   <div class="line">国际化>>>{{$t('message.hello')}}</div>
 </template>
 
-<script>
+<script lang="ts">
 import { testMock } from "@/api/base";
 import { useStore } from "vuex";
-import { defineComponent, computed } from "vue";
-import lang from '@/i18n/lang'
+import { defineComponent, computed, toRef, toRefs } from "vue";
+import lang from "@/i18n/lang";
 import { useRouter } from "vue-router";
 export default defineComponent({
-  setup(props) {
+  setup(props: any) {
+    const { title } = toRefs(props);
+    // const title = toRef(props, "title");
     const router = useRouter();
 
     // 国际化切换
-    let { changeLang, i18n } = lang()
+    let { changeLang, i18n } = lang();
     // console.log('在js中使用国际化', i18n.global.t('message.hello'))
     // mock 数据
     testMock({}).then((res) => {
       console.log("mock 返回数据", res);
     });
-
 
     // vuex
     const store = useStore();
@@ -41,7 +42,7 @@ export default defineComponent({
     const goto = () => {
       router.push({ path: "/about" });
     };
-    return { goto, changeLang }
+    return { goto, changeLang };
   },
 });
 </script>
