@@ -4,7 +4,6 @@
     <a href="javascript:void(0)" @click="changeLang('zh')">中文</a> --
     <a href="javascript:void(0)" @click="changeLang('en')">English</a>
   </div>
-
   <div class="line">国际化>>>{{$t('message.hello')}}</div>
 </template>
 
@@ -23,11 +22,11 @@ export default defineComponent({
       console.log("mock 返回数据", res);
     });
 
+
     // vuex
     const store = useStore();
     let user = computed(() => store.state.user);
     // console.log('状态管理', user)
-
 
     return { changeLang }
   },
