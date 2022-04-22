@@ -1,5 +1,5 @@
 <template>
-  <h1>Home</h1>
+  <h1 @click="goto">About</h1>
   <div style="margin-bottom:20px;">
     <a href="javascript:void(0)" @click="changeLang('zh')">中文</a> --
     <a href="javascript:void(0)" @click="changeLang('en')">English</a>
@@ -12,8 +12,11 @@ import { testMock } from "@/api/base";
 import { useStore } from "vuex";
 import { defineComponent, computed } from "vue";
 import lang from '@/i18n/lang'
+import { useRouter } from "vue-router";
 export default defineComponent({
   setup(props) {
+    const router = useRouter();
+
     // 国际化切换
     let { changeLang, i18n } = lang()
     // console.log('在js中使用国际化', i18n.global.t('message.hello'))
@@ -27,8 +30,11 @@ export default defineComponent({
     const store = useStore();
     let user = computed(() => store.state.user);
     // console.log('状态管理', user)
-
-    return { changeLang }
+    // 页面跳转
+    const goto = () => {
+      router.push({ path: "/about" });
+    };
+    return { goto, changeLang }
   },
 });
 </script>
