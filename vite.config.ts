@@ -1,6 +1,5 @@
 const vuePlugin = require("@vitejs/plugin-vue");
 import { viteMockServe } from "vite-plugin-mock";
-import eslintPlugin from "vite-plugin-eslint";
 import path from "path";
 /**
  * @type {import('vite').UserConfig}
@@ -11,10 +10,6 @@ module.exports = {
     viteMockServe({
       mockPath: "./src/utils/server/mock",
       supportTs: false,
-    }),
-    // 添加下面这块
-    eslintPlugin({
-      include: ["src/**/*.js", "src/**/*.vue", "src/*.js", "src/*.vue"],
     }),
   ],
   // 引用全局 scss
