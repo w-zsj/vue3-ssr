@@ -86,7 +86,6 @@
   },
   "powermode.enabled": true,
   "powermode.presets": "flames",
-  "powermode.enableShake": false,
   "explorer.confirmDragAndDrop": false,
   "path-intellisense.mappings": {
     "@": "${workspaceRoot}/src",
@@ -109,5 +108,6 @@
   "editor.formatOnType": true,
   "editor.formatOnSave": true,
   "javascript.format.insertSpaceAfterConstructor": true,
+  "powermode.shake.enabled": false,
 
 }
