@@ -2,7 +2,7 @@
  * @Author: zhangsanjun 
  * @Date: 2022-04-23 10:07:42 
  * @Last Modified by: zhangsanjun
- * @Last Modified time: 2022-04-23 17:34:24
+ * @Last Modified time: 2022-04-23 20:24:11
  */
 
 <template>
@@ -47,12 +47,17 @@ export default {
           _.datezh = dateEnUS;
         }
       };
-    $bus.on("eventLocale", (val: any) => handle(val));
+    $bus.on("eventLocale", (val: any) => {
+      console.log("val", val);
+      handle(val);
+    });
     nextTick(() => {
       if (!_.SSR) {
-        let local = window.sessionStorage.getItem("local") || "zh";
-        changeLang(local);
-        handle(local);
+        let local: any = window.sessionStorage.getItem("local") || "";
+        if (local) {
+          changeLang(local);
+          handle(local);
+        }
       }
     });
     // 清除监听

@@ -1,7 +1,7 @@
 /* * @Author: zhangsanjun 
 * @Date: 2022-04-23 06:41:53 
  * @Last Modified by: zhangsanjun
- * @Last Modified time: 2022-04-23 17:31:13
+ * @Last Modified time: 2022-04-23 20:08:14
 */
 <template>
   <h1 @click="goto">首页</h1>
@@ -9,15 +9,17 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, toRefs } from "vue";
 import { useRoute, useRouter } from "vue-router";
 export default defineComponent({
+  props: ["type"],
   setup(props: any) {
+    const { type } = toRefs(props);
+    // console.log("type", type.value);
     // 页面跳转
-    let router = useRouter(),
-      roure = useRoute();
+    let router = useRouter();
     let goto = () => {
-      router.push({ path: "/demo" });
+      router.push({ path: `/demo` });
     };
     // console.log("roure", roure.query);
     return { goto };

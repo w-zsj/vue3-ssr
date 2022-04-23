@@ -15,6 +15,6 @@ export function createApp() {
       off: emitter.off,
     };
   app.config.globalProperties.$bus = $bus;
-  app.use(router).use(store).use(i18n).component("svg-icon", SvgIcon);
+  app.use(i18n).use(router).use(store).component("svg-icon", SvgIcon);
   return { app, router };
 }

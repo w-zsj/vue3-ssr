@@ -28,18 +28,26 @@ import {
   getCurrentInstance,
 } from "vue";
 import lang from "@/i18n/lang";
+import { useRouter } from "vue-router";
 export default defineComponent({
+  props: ["type"],
   setup(props: any) {
-    const { appContext }: any = getCurrentInstance();
-    const $bus = appContext.config.globalProperties.$bus;
-    const { title } = toRefs(props);
+    let router = useRouter(),
+      { appContext }: any = getCurrentInstance(),
+      $bus = appContext.config.globalProperties.$bus,
+      { type } = toRefs(props);
+
     // const title = toRef(props, "title");
 
     // 国际化切换
     let { changeLang, i18n } = lang();
-    const selectLang = (type: string) => {
-      $bus.emit("eventLocale", type);
-      // console.log('在js中使用国际化', i18n.global.t('message.hello'))
+    // console.log("在js中使用国际化", i18n.global.t("message.hello"));
+    let selectLang = (type: string) => {
+      console.log("type", type);
+      if (type == "zh") {
+        router.replace(`/demo`);
+      } else router.replace(`/${type}/demo`);
+
       return changeLang(type);
     };
     // mock 数据
