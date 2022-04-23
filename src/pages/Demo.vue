@@ -12,9 +12,9 @@
   <br />
   <div class="line">svg <svg-icon name="home"></svg-icon>
   </div>
-  <n-button type="error">
-    Error
-  </n-button>
+  <n-button type="error"> Error </n-button>
+  <n-tag type="success"> 不该 </n-tag>
+  <n-tag type="warning"> 超人不会飞 </n-tag>
 </template>
 
 <script lang="ts">
