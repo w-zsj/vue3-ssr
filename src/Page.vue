@@ -2,7 +2,7 @@
  * @Author: zhangsanjun 
  * @Date: 2022-04-23 10:07:42 
  * @Last Modified by: zhangsanjun
- * @Last Modified time: 2022-04-23 12:00:18
+ * @Last Modified time: 2022-04-23 13:14:57
  */
 
 <template>
@@ -20,7 +20,6 @@ import {
   onUnmounted,
   reactive,
   toRefs,
-  ref,
   getCurrentInstance,
 } from "vue";
 import { NConfigProvider } from "naive-ui";
