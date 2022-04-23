@@ -26,7 +26,6 @@ export default {
       return localName
     }
     nextTick(() => {
-      console.log('当前语言包', getLocal())
       changeLang(getLocal())
     })
   }

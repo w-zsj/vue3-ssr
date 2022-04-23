@@ -7,10 +7,11 @@ import path from "path";
 module.exports = {
   plugins: [
     vuePlugin(),
-    viteMockServe({
-      mockPath: "./src/utils/server/mock",
-      supportTs: false,
-    }),
+    process.env.NODE_ENV === "development" &&
+      viteMockServe({
+        mockPath: "./src/utils/server/mock",
+        supportTs: false,
+      }),
   ],
   // 引用全局 scss
   css: {
