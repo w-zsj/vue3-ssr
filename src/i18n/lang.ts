@@ -4,7 +4,7 @@ export default () => {
   const { locale } = useI18n();
   const changeLang = (type: string) => {
     locale.value = type;
-    sessionStorage.setItem("local", type);
+    sessionStorage && sessionStorage.setItem("local", type);
   };
   return { changeLang, i18n };
 };
