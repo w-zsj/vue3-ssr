@@ -1,7 +1,7 @@
 /* * @Author: zhangsanjun 
 * @Date: 2022-04-23 06:41:53 
  * @Last Modified by: zhangsanjun
- * @Last Modified time: 2022-04-23 13:13:36
+ * @Last Modified time: 2022-04-23 13:42:59
 */
 <template>
   <h1 @click="goto">首页</h1>
@@ -10,14 +10,16 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 export default defineComponent({
   setup(props: any) {
     // 页面跳转
     let router = useRouter(),
-      goto = () => {
-        router.push({ path: "/demo" });
-      };
+      roure = useRoute();
+    let goto = () => {
+      router.push({ path: "/demo" });
+    };
+    console.log("roure", roure.query);
     return { goto };
   },
 });
