@@ -2,6 +2,9 @@ const vuePlugin = require("@vitejs/plugin-vue");
 import { viteMockServe } from "vite-plugin-mock";
 import { svgBuilder } from "./src/utils/svgBuilder";
 import path from "path";
+import Components from "unplugin-vue-components/vite";
+import { NaiveUiResolver } from "unplugin-vue-components/resolvers";
+
 /**
  * @type {import('vite').UserConfig}
  */
@@ -14,6 +17,9 @@ module.exports = {
         supportTs: false,
       }),
     svgBuilder("./src/icons/svg/"),
+    Components({
+      resolvers: [NaiveUiResolver()],
+    }),
   ],
   // 引用全局 scss
   css: {

@@ -12,6 +12,9 @@
   <br />
   <div class="line">svg <svg-icon name="home"></svg-icon>
   </div>
+  <n-button type="error">
+    Error
+  </n-button>
 </template>
 
 <script lang="ts">

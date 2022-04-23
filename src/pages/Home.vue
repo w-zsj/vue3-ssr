@@ -4,7 +4,6 @@
 <template>
   <h1 @click="goto">首页</h1>
   <img src="../assets/logo.png" alt="" srcset="">
-
 </template>
 
 <script lang="ts">
