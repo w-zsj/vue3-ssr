@@ -3,6 +3,7 @@ import { createSSRApp } from "vue";
 import { createRouter } from "./router";
 import store from "./store/index";
 import i18n from "./i18n";
+import svgIcon from "./components/svgIcon.vue";
 // console.log(`process.env>>>`, import.meta.env)
 
 export function createApp() {
@@ -11,5 +12,6 @@ export function createApp() {
   app.use(router);
   app.use(store);
   app.use(i18n);
+  app.component("svg-icon", svgIcon);
   return { app, router };
 }

@@ -1,5 +1,6 @@
 const vuePlugin = require("@vitejs/plugin-vue");
 import { viteMockServe } from "vite-plugin-mock";
+import { svgBuilder } from "./src/utils/svgBuilder";
 import path from "path";
 /**
  * @type {import('vite').UserConfig}
@@ -12,6 +13,7 @@ module.exports = {
         mockPath: "./src/utils/server/mock",
         supportTs: false,
       }),
+    svgBuilder("./src/icons/svg/"),
   ],
   // 引用全局 scss
   css: {

@@ -2,7 +2,7 @@
  * @Author: zhangsanjun 
  * @Date: 2022-04-23 06:41:53 
  * @Last Modified by: zhangsanjun
- * @Last Modified time: 2022-04-23 08:51:47
+ * @Last Modified time: 2022-04-23 11:02:30
  */
 
 <template>
@@ -11,7 +11,12 @@
     <a href="javascript:void(0)" @click="changeLang('zh')">中文</a> --
     <a href="javascript:void(0)" @click="changeLang('en')">English</a>
   </div>
-  <div class="line">国际化>>>{{$t('message.hello')}}</div>
+  <br>
+  <div class="">国际化>>>{{$t('message.hello')}}</div>
+  <br>
+  <div class="line">
+    svg <svg-icon name="home"></svg-icon>
+  </div>
 </template>
 
 <script lang="ts">
