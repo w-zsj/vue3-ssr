@@ -2,7 +2,7 @@
  * @Author: zhangsanjun 
  * @Date: 2022-04-23 10:07:42 
  * @Last Modified by: zhangsanjun
- * @Last Modified time: 2022-04-23 10:17:50
+ * @Last Modified time: 2022-04-23 12:00:41
  */
 
 <template>
@@ -18,12 +18,12 @@
 import lang from "@/i18n/lang";
 import { nextTick } from "vue";
 export default {
-  setup(props) {
+  setup(props: any) {
     let { changeLang } = lang();
     nextTick(() => {
       if (!import.meta.env.SSR) {
-        const local = window.sessionStorage.getItem("local");
-        if (local) changeLang(local);
+        let local = window.sessionStorage.getItem("local");
+        local && changeLang(local);
       }
     });
   },
