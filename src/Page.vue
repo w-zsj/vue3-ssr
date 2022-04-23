@@ -2,7 +2,7 @@
  * @Author: zhangsanjun 
  * @Date: 2022-04-23 10:07:42 
  * @Last Modified by: zhangsanjun
- * @Last Modified time: 2022-04-23 20:24:11
+ * @Last Modified time: 2022-04-23 21:44:58
  */
 
 <template>
@@ -48,7 +48,7 @@ export default {
         }
       };
     $bus.on("eventLocale", (val: any) => {
-      console.log("val", val);
+      // console.log("val", val);
       handle(val);
     });
     nextTick(() => {

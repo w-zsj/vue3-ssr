@@ -43,7 +43,7 @@ export default defineComponent({
     let { changeLang, i18n } = lang();
     // console.log("在js中使用国际化", i18n.global.t("message.hello"));
     let selectLang = (type: string) => {
-      console.log("type", type);
+      // console.log("type", type);
       if (type == "zh") {
         router.replace(`/demo`);
       } else router.replace(`/${type}/demo`);
