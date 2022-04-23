@@ -1,7 +1,7 @@
 /* * @Author: zhangsanjun 
 * @Date: 2022-04-23 06:41:53 
  * @Last Modified by: zhangsanjun
- * @Last Modified time: 2022-04-23 13:42:59
+ * @Last Modified time: 2022-04-23 17:31:13
 */
 <template>
   <h1 @click="goto">首页</h1>
@@ -19,7 +19,7 @@ export default defineComponent({
     let goto = () => {
       router.push({ path: "/demo" });
     };
-    console.log("roure", roure.query);
+    // console.log("roure", roure.query);
     return { goto };
   },
 });
