@@ -1,7 +1,7 @@
 /* * @Author: zhangsanjun 
 * @Date: 2022-04-23 06:41:53 
  * @Last Modified by: zhangsanjun
- * @Last Modified time: 2022-04-23 20:08:14
+ * @Last Modified time: 2022-04-24 01:11:59
 */
 <template>
   <h1 @click="goto">首页</h1>
@@ -10,7 +10,7 @@
 
 <script lang="ts">
 import { defineComponent, toRefs } from "vue";
-import { useRoute, useRouter } from "vue-router";
+import { useRouter } from "vue-router";
 export default defineComponent({
   props: ["type"],
   setup(props: any) {

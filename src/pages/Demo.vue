@@ -20,24 +20,13 @@
 <script lang="ts">
 import { testMock } from "@/api/base";
 import { useStore } from "vuex";
-import {
-  defineComponent,
-  computed,
-  ref,
-  toRefs,
-  getCurrentInstance,
-} from "vue";
+import { defineComponent, computed } from "vue";
 import lang from "@/i18n/lang";
 import { useRouter } from "vue-router";
 export default defineComponent({
   props: ["type"],
   setup(props: any) {
-    let router = useRouter(),
-      { appContext }: any = getCurrentInstance(),
-      $bus = appContext.config.globalProperties.$bus,
-      { type } = toRefs(props);
-
-    // const title = toRef(props, "title");
+    let router = useRouter();
 
     // 国际化切换
     let { changeLang, i18n } = lang();
