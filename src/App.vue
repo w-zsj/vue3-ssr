@@ -1,3 +1,10 @@
+/*
+ * @Author: zhangsanjun 
+ * @Date: 2022-04-23 10:07:42 
+ * @Last Modified by: zhangsanjun
+ * @Last Modified time: 2022-04-23 10:17:50
+ */
+
 <template>
   <div>
     <router-view v-slot="{ Component }">
@@ -7,27 +14,18 @@
     </router-view>
   </div>
 </template>
-<script>
+<script lang="ts">
 import lang from "@/i18n/lang";
-import { nextTick } from 'vue'
+import { nextTick } from "vue";
 export default {
-  setup() {
+  setup(props) {
     let { changeLang } = lang();
-    const getLocal = () => {
-      // 如果缓存中存在，则直接返回
-      const local = sessionStorage.getItem('local')
-      if (local) {
-        return local
-      }
-      // 否则读取当前网页语言
-      const localName = navigator.language.indexOf('zh') !== -1 ? 'zh' : 'en'
-      // 设置缓存
-      sessionStorage.setItem('local', localName)
-      return localName
-    }
     nextTick(() => {
-      changeLang(getLocal())
-    })
-  }
-}
+      if (!import.meta.env.SSR) {
+        const local = window.sessionStorage.getItem("local");
+        if (local) changeLang(local);
+      }
+    });
+  },
+};
 </script>
