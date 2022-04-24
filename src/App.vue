@@ -6,13 +6,7 @@
  */
 
 <template>
-  <div>
-    <router-view v-slot="{ Component }">
-      <Suspense>
-        <component :is="Component" />
-      </Suspense>
-    </router-view>
-  </div>
+  <router-view />
 </template>
 <script lang="ts">
 export default {

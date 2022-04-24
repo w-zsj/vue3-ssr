@@ -16,10 +16,16 @@ let pages = import.meta.glob("./pages/**/*.vue"),
       props: true,
       component: pages[path], // () => import('./pages/**/*.vue')
       beforeEnter: (to: any, from: any) => {
+        console.log("to", to, from);
         if (!import.meta.env.SSR) {
           let count: any = sessionStorage.getItem("count");
           let local = sessionStorage.getItem("local") || "";
           let path = to.path.replace(/(zh|en)\//, "");
+          // 处理手动修改路由 切换语言包
+          if (!from.name && to.params.type) {
+            local = to.params.type;
+            sessionStorage.setItem("local", local);
+          }
           if (!count && path != "404") {
             sessionStorage.setItem("count", "1");
             if (local == "zh" || !local) return { path: `${path}` };
