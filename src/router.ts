@@ -16,7 +16,7 @@ let pages = import.meta.glob("./pages/**/*.vue"),
       props: true,
       component: pages[path], // () => import('./pages/**/*.vue')
       beforeEnter: (to: any, from: any) => {
-        console.log("to", to, from);
+        // console.log("to", to, from);
         if (!import.meta.env.SSR) {
           let count: any = sessionStorage.getItem("count");
           let local = sessionStorage.getItem("local") || "";
