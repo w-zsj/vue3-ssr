@@ -23,3 +23,4 @@
 3、使用 document、window 需谨慎 服务端无法识别 需要要判断 环境 import.meta.env.SSR
 4、语言包 标识符 type 采用动态路由的方式；组件内直接用 props: ["type"] 获取 ，无需用 router 获取
 5、UI 组件库 https://www.naiveui.com/zh-CN/os-theme
+6、svg icon 使用 <svg-icon name="home"></svg-icon>
