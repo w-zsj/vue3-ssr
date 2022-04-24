@@ -8,7 +8,7 @@
 <template>
   <div>
     <n-config-provider :locale="zh" :date-locale="datezh">
-      <App v-if="isShow" />
+      <App v-if="isRendered" />
     </n-config-provider>
   </div>
 </template>
@@ -35,7 +35,7 @@ export default {
       zh: {},
       datezh: {},
       SSR: import.meta.env.SSR,
-      isShow: false,
+      isRendered: false,
     });
     // 定义 vue-api
     let { appContext }: any = getCurrentInstance();
@@ -54,7 +54,7 @@ export default {
     };
     // 页面渲染完成
     nextTick(() => {
-      _.isShow = true;
+      _.isRendered = true;
       if (!_.SSR) {
         let local: any = window.sessionStorage.getItem("local") || "zh";
         changeLang(local);
