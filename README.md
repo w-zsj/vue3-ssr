@@ -4,6 +4,8 @@
 
 # npm run bulid
 
+测试环境启动服务
+
 # npm run dev
 
 # 测试
