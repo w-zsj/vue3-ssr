@@ -4,7 +4,9 @@ import { createRouter } from "./router";
 import store from "./store/index";
 import i18n from "./i18n";
 import SvgIcon from "./components/SvgIcon.vue";
+import "nprogress/nprogress.css";
 import mitt from "mitt";
+
 export function createApp() {
   let app = createSSRApp(Page),
     router = createRouter(),

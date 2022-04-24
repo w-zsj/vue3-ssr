@@ -1,4 +1,14 @@
-.line{
+.line {
     width: 100%;
     border-bottom: 1px solid #c6c6c6;
+}
+
+#nprogress {
+    .bar {
+        background: green !important;
+    }
+
+    .spinner {
+        display: none !important;
+    }
 }

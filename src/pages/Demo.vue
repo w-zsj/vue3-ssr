@@ -46,7 +46,7 @@ export default defineComponent({
       return changeLang(type);
     };
     // mock 数据
-    testMock({}).then((res) => {
+    testMock({ zs: 1 }).then((res) => {
       console.log("mock 返回数据", res);
     });
 
