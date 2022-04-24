@@ -4,8 +4,8 @@
  * @Last Modified time: 2022-04-24 01:11:59
 */
 <template>
-  <h1 @click="goto">首页</h1>
-  <img src="../assets/logo.png" alt="" srcset="">
+  <h1 @click="goto('404')">首页-->> 404</h1>
+  <img src="../assets/logo.png" alt="" @click="goto('/demo')">
 </template>
 
 <script lang="ts">
@@ -14,14 +14,11 @@ import { useRouter } from "vue-router";
 export default defineComponent({
   props: ["type"],
   setup(props: any) {
-    const { type } = toRefs(props);
-    // console.log("type", type.value);
     // 页面跳转
     let router = useRouter();
-    let goto = () => {
-      router.push({ path: `/demo` });
+    let goto = (path: string) => {
+      router.push(path);
     };
-    // console.log("roure", roure.query);
     return { goto };
   },
 });
