@@ -15,3 +15,7 @@
 # 生产
 
 # pm2 start npm --name "demo" -- run serve
+
+# 注意事项
+
+1、生命周期钩子不要用 如 onBeforeMount onMounted （onUpdated 可用）

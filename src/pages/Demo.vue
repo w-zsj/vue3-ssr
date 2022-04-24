@@ -8,6 +8,9 @@
     <a href="javascript:void(0)" @click="selectLang('en')">English</a>
   </div>
   <br />
+  <n-date-picker v-if="SSR" v-model:formatted-value="formattedValue" value-format="yyyy.MM.dd HH:mm:ss" type="datetime"
+    clearable />
+  <br />
   <div class="">国际化>>>{{ $t("message.hello") }}</div>
   <br />
   <div class="line">svg <svg-icon name="home"></svg-icon>
@@ -20,14 +23,20 @@
 <script lang="ts">
 import { testMock } from "@/api/base";
 import { useStore } from "vuex";
-import { defineComponent, computed } from "vue";
+import { defineComponent, computed, ref, onUpdated } from "vue";
 import lang from "@/i18n/lang";
 import { useRouter } from "vue-router";
 export default defineComponent({
   props: ["type"],
   setup(props: any) {
+    //定义data
+    //判断服务端是否显示
+    let SSR = ref(false);
+    // 页面渲染完成
+    onUpdated(() => {
+      SSR.value = !import.meta.env.SSR;
+    });
     let router = useRouter();
-
     // 国际化切换
     let { changeLang, i18n } = lang();
     // console.log("在js中使用国际化", i18n.global.t("message.hello"));
@@ -46,8 +55,9 @@ export default defineComponent({
     let user = computed(() => store.state.user);
     // console.log('状态管理', user)
     return {
+      formattedValue: ref("2007.06.30 12:08:55"),
       selectLang,
-      SSR: import.meta.env.SSR,
+      SSR,
     };
   },
 });
