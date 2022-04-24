@@ -20,7 +20,7 @@ import {
   toRefs,
   getCurrentInstance,
   onUnmounted,
-  onUpdated,
+  nextTick,
 } from "vue";
 import { NConfigProvider } from "naive-ui";
 import { zhCN, dateZhCN, enUS, dateEnUS } from "naive-ui";
@@ -52,7 +52,7 @@ export default {
       }
     };
     // 页面渲染完成
-    onUpdated(() => {
+    nextTick(() => {
       if (!_.SSR) {
         let local: any = window.sessionStorage.getItem("local") || "zh";
         changeLang(local);

@@ -23,7 +23,7 @@
 <script lang="ts">
 import { testMock } from "@/api/base";
 import { useStore } from "vuex";
-import { defineComponent, computed, ref, onUpdated } from "vue";
+import { defineComponent, computed, ref, nextTick } from "vue";
 import lang from "@/i18n/lang";
 import { useRouter } from "vue-router";
 export default defineComponent({
@@ -33,7 +33,8 @@ export default defineComponent({
     //判断服务端是否显示
     let SSR = ref(false);
     // 页面渲染完成
-    onUpdated(() => {
+    nextTick(() => {
+      console.log("import.meta.env.SSR", import.meta.env.SSR);
       SSR.value = !import.meta.env.SSR;
     });
     let router = useRouter();
