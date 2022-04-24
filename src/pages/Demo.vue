@@ -1,5 +1,8 @@
-/* * @Author: zhangsanjun * @Date: 2022-04-23 06:41:53 * @Last Modified by: zhangsanjun *
-@Last Modified time: 2022-04-23 11:35:32 */
+/* * @Author: zhangsanjun
+ * @Date: 2022-04-23 06:41:53 
+ * @Last Modified by: zhangsanjun *
+@Last Modified time: 2022-04-23 11:35:32
+ */
 
 <template>
   <h1>demo</h1>
@@ -34,7 +37,6 @@ export default defineComponent({
     let SSR = ref(false);
     // 页面渲染完成
     nextTick(() => {
-      console.log("import.meta.env.SSR", import.meta.env.SSR);
       SSR.value = !import.meta.env.SSR;
     });
     let router = useRouter();

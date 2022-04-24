@@ -2,13 +2,13 @@
  * @Author: zhangsanjun 
  * @Date: 2022-04-23 10:07:42 
  * @Last Modified by: zhangsanjun
- * @Last Modified time: 2022-04-24 01:10:17
+ * @Last Modified time: 2022-04-24 10:31:44
  */
 
 <template>
   <div>
     <n-config-provider :locale="zh" :date-locale="datezh">
-      <App />
+      <App v-if="isShow" />
     </n-config-provider>
   </div>
 </template>
@@ -35,6 +35,7 @@ export default {
       zh: {},
       datezh: {},
       SSR: import.meta.env.SSR,
+      isShow: false,
     });
     // 定义 vue-api
     let { appContext }: any = getCurrentInstance();
@@ -53,6 +54,7 @@ export default {
     };
     // 页面渲染完成
     nextTick(() => {
+      _.isShow = true;
       if (!_.SSR) {
         let local: any = window.sessionStorage.getItem("local") || "zh";
         changeLang(local);

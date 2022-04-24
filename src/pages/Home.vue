@@ -4,8 +4,13 @@
  * @Last Modified time: 2022-04-24 01:11:59
 */
 <template>
-  <h1 @click="goto('404')">首页-->> 404</h1>
-  <img src="../assets/logo.png" alt="" @click="goto('/demo')">
+  <n-card title="卡片" @click="goto('404')">
+    {{ $t("message.home") }}-->> 404
+  </n-card>
+  <n-divider />
+  <n-button type="success" @click="goto('/demo')">
+    页面跳转
+  </n-button>
 </template>
 
 <script lang="ts">
@@ -25,7 +30,4 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-h1 {
-  color: green;
-}
 </style>
