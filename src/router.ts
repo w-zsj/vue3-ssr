@@ -20,7 +20,6 @@ let pages = import.meta.glob("./pages/**/*.vue"),
           let count: any = sessionStorage.getItem("count");
           let local = sessionStorage.getItem("local") || "";
           let path = to.path.replace(/(zh|en)\//, "");
-          // console.log("path", path, local);
           if (!count && path != "404") {
             sessionStorage.setItem("count", "1");
             if (local == "zh" || !local) return { path: `${path}` };

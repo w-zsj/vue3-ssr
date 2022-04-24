@@ -30,27 +30,28 @@ export default {
     App,
   },
   setup() {
-    let { appContext }: any = getCurrentInstance(),
-      $bus = appContext.config.globalProperties.$bus,
-      _ = reactive({
-        zh: {},
-        datezh: {},
-        SSR: import.meta.env.SSR,
-      }),
-      { changeLang } = lang(),
-      handle = (local: any) => {
-        if (local == "zh") {
-          _.zh = zhCN;
-          _.datezh = dateZhCN;
-        } else {
-          _.zh = enUS;
-          _.datezh = dateEnUS;
-        }
-      };
-    $bus.on("eventLocale", (val: any) => {
-      // console.log("val", val);
-      handle(val);
+    // 定义data
+    let _ = reactive({
+      zh: {},
+      datezh: {},
+      SSR: import.meta.env.SSR,
     });
+    // 定义 vue-api
+    let { appContext }: any = getCurrentInstance();
+    let $bus = appContext.config.globalProperties.$bus;
+    $bus.on("eventLocale", (val: any) => handle(val));
+    // 定义方法
+    let { changeLang } = lang();
+    let handle = (local: any) => {
+      if (local == "zh") {
+        _.zh = zhCN;
+        _.datezh = dateZhCN;
+      } else {
+        _.zh = enUS;
+        _.datezh = dateEnUS;
+      }
+    };
+    // 页面渲染完成
     nextTick(() => {
       if (!_.SSR) {
         let local: any = window.sessionStorage.getItem("local") || "zh";
