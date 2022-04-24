@@ -2,7 +2,7 @@ const en = {
   message: {
     home: "home",
     hello: "hello",
-    userName: "zsj",
+    i18n: "i18n",
   },
 };
 

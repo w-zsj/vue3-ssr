@@ -10,16 +10,15 @@
     <a href="javascript:void(0)" @click="selectLang('zh')">中文</a> --
     <a href="javascript:void(0)" @click="selectLang('en')">English</a>
   </div>
-  <br />
+  <n-divider />
+  <div class="">{{$t("message.i18n")}}>>>{{ $t("message.hello") }}</div>
+  <n-divider />
   <n-date-picker v-if="SSR" v-model:formatted-value="formattedValue" value-format="yyyy.MM.dd HH:mm:ss" type="datetime"
     clearable />
-  <br />
-  <div class="">国际化>>>{{ $t("message.hello") }}</div>
-  <br />
-  <div class="line">svg <svg-icon name="home"></svg-icon>
-  </div>
-  <n-button type="error"> Error </n-button>
-  <n-tag type="success"> 不该 </n-tag>
+  <n-divider />
+  svg <svg-icon name="home"></svg-icon>
+  <n-divider />
+
   <n-tag type="warning"> 超人不会飞 </n-tag>
 </template>
 
