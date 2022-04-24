@@ -4,12 +4,14 @@
  * @Last Modified time: 2022-04-24 01:11:59
 */
 <template>
-  <n-card title="卡片" @click="goto('404')">
-    {{ $t("message.home") }}-->> 404
+  <n-card title="卡片">
+    <n-button type="success" @click="goto('404')">
+      {{ $t("message.home") }}-->> 404
+    </n-button>
   </n-card>
   <n-divider />
   <n-button type="success" @click="goto('/demo')">
-    页面跳转
+    页面跳转>>>demo
   </n-button>
 </template>
 
